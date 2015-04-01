@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="10.0" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">$(FxCopDir)\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="en-US" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True">
+   <CustomDictionary Path="$(ProjectDir)/CustomDictionary.xml" />
+  </CustomDictionaries>
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <AssemblyReferenceDirectories>
+   <Directory>$(ProjectDir)/WebDAVSharp.Core/bin/Debug/</Directory>
+  </AssemblyReferenceDirectories>
+  <Target Name="$(ProjectDir)/WebDAVSharp.Server/bin/Debug/WebDAVSharp.Core.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/WebDAVSharp.Server/bin/Debug/WebDAVSharp.Server.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="False">
+    <Rule Name="AbstractTypesShouldNotHaveConstructors" Enabled="True" />
+    <Rule Name="AssembliesShouldHaveValidStrongNames" Enabled="True" />
+    <Rule Name="AvoidEmptyInterfaces" Enabled="True" />
+    <Rule Name="AvoidExcessiveParametersOnGenericTypes" Enabled="True" />
+    <Rule Name="AvoidOutParameters" Enabled="True" />
+    <Rule Name="CollectionsShouldImplementGenericInterface" Enabled="True" />
+    <Rule Name="ConsiderPassingBaseTypesAsParameters" Enabled="True" />
+    <Rule Name="DeclareEventHandlersCorrectly" Enabled="True" />
+    <Rule Name="DeclareTypesInNamespaces" Enabled="True" />
+    <Rule Name="DefineAccessorsForAttributeArguments" Enabled="True" />
+    <Rule Name="DoNotCatchGeneralExceptionTypes" Enabled="True" />
+    <Rule Name="DoNotDeclareProtectedMembersInSealedTypes" Enabled="True" />
+    <Rule Name="DoNotDeclareStaticMembersOnGenericTypes" Enabled="True" />
+    <Rule Name="DoNotDeclareVirtualMembersInSealedTypes" Enabled="True" />
+    <Rule Name="DoNotDeclareVisibleInstanceFields" Enabled="True" />
+    <Rule Name="DoNotExposeGenericLists" Enabled="True" />
+    <Rule Name="DoNotHideBaseClassMethods" Enabled="True" />
+    <Rule Name="DoNotNestGenericTypesInMemberSignatures" Enabled="True" />
+    <Rule Name="DoNotOverloadOperatorEqualsOnReferenceTypes" Enabled="True" />
+    <Rule Name="DoNotPassTypesByReference" Enabled="True" />
+    <Rule Name="DoNotRaiseExceptionsInUnexpectedLocations" Enabled="True" />
+    <Rule Name="EnumeratorsShouldBeStronglyTyped" Enabled="True" />
+    <Rule Name="EnumsShouldHaveZeroValue" Enabled="True" />
+    <Rule Name="EnumStorageShouldBeInt32" Enabled="True" />
+    <Rule Name="ExceptionsShouldBePublic" Enabled="True" />
+    <Rule Name="GenericMethodsShouldProvideTypeParameter" Enabled="True" />
+    <Rule Name="ICollectionImplementationsHaveStronglyTypedMembers" Enabled="True" />
+    <Rule Name="ImplementIDisposableCorrectly" Enabled="True" />
+    <Rule Name="ImplementStandardExceptionConstructors" Enabled="True" />
+    <Rule Name="IndexersShouldNotBeMultidimensional" Enabled="True" />
+    <Rule Name="InterfaceMethodsShouldBeCallableByChildTypes" Enabled="True" />
+    <Rule Name="ListsAreStronglyTyped" Enabled="True" />
+    <Rule Name="MarkAssembliesWithAssemblyVersion" Enabled="True" />
+    <Rule Name="MarkAssembliesWithClsCompliant" Enabled="True" />
+    <Rule Name="MarkAssembliesWithComVisible" Enabled="True" />
+    <Rule Name="MarkAttributesWithAttributeUsage" Enabled="True" />
+    <Rule Name="MarkEnumsWithFlags" Enabled="True" />
+    <Rule Name="MembersShouldNotExposeCertainConcreteTypes" Enabled="True" />
+    <Rule Name="MovePInvokesToNativeMethodsClass" Enabled="True" />
+    <Rule Name="NestedTypesShouldNotBeVisible" Enabled="True" />
+    <Rule Name="OverloadOperatorEqualsOnOverloadingAddAndSubtract" Enabled="True" />
+    <Rule Name="OverrideMethodsOnComparableTypes" Enabled="True" />
+    <Rule Name="PropertiesShouldNotBeWriteOnly" Enabled="True" />
+    <Rule Name="ProvideObsoleteAttributeMessage" Enabled="True" />
+    <Rule Name="ReplaceRepetitiveArgumentsWithParamsArray" Enabled="True" />
+    <Rule Name="StaticHolderTypesShouldBeSealed" Enabled="True" />
+    <Rule Name="StaticHolderTypesShouldNotHaveConstructors" Enabled="True" />
+    <Rule Name="StringUriOverloadsCallSystemUriOverloads" Enabled="True" />
+    <Rule Name="TypesShouldNotExtendCertainBaseTypes" Enabled="True" />
+    <Rule Name="TypesThatOwnDisposableFieldsShouldBeDisposable" Enabled="True" />
+    <Rule Name="TypesThatOwnNativeResourcesShouldBeDisposable" Enabled="True" />
+    <Rule Name="UriParametersShouldNotBeStrings" Enabled="True" />
+    <Rule Name="UriPropertiesShouldNotBeStrings" Enabled="True" />
+    <Rule Name="UriReturnValuesShouldNotBeStrings" Enabled="True" />
+    <Rule Name="UseEventsWhereAppropriate" Enabled="True" />
+    <Rule Name="UseGenericEventHandlerInstances" Enabled="True" />
+    <Rule Name="UseGenericsWhereAppropriate" Enabled="True" />
+    <Rule Name="UseIntegralOrStringArgumentForIndexers" Enabled="True" />
+    <Rule Name="UsePropertiesWhereAppropriate" Enabled="True" />
+   </RuleFile>
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="False">
+    <Rule Name="AvoidExcessiveLocals" Enabled="True" />
+    <Rule Name="AvoidUncalledPrivateCode" Enabled="True" />
+    <Rule Name="AvoidUninstantiatedInternalClasses" Enabled="True" />
+    <Rule Name="AvoidUnsealedAttributes" Enabled="True" />
+    <Rule Name="AvoidUnusedPrivateFields" Enabled="True" />
+    <Rule Name="DoNotCastUnnecessarily" Enabled="True" />
+    <Rule Name="InitializeReferenceTypeStaticFieldsInline" Enabled="True" />
+    <Rule Name="MarkAssembliesWithNeutralResourcesLanguage" Enabled="True" />
+    <Rule Name="OverrideEqualsAndOperatorEqualsOnValueTypes" Enabled="True" />
+    <Rule Name="PreferJaggedArraysOverMultidimensional" Enabled="True" />
+    <Rule Name="PropertiesShouldNotReturnArrays" Enabled="True" />
+    <Rule Name="RemoveEmptyFinalizers" Enabled="True" />
+    <Rule Name="RemoveUnusedLocals" Enabled="True" />
+    <Rule Name="TestForEmptyStringsUsingStringLength" Enabled="True" />
+    <Rule Name="UseLiteralsWhereAppropriate" Enabled="True" />
+   </RuleFile>
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityTransparencyRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="10.0">
+  <Targets>
+   <Target Name="$(ProjectDir)/WebDAVSharp.Server/bin/Debug/WebDAVSharp.Core.dll">
+    <Modules>
+     <Module Name="webdavsharp.core.dll">
+      <Namespaces>
+       <Namespace Name="WebDAVSharp">
+        <Types>
+         <Type Name="HttpStatusCodes+ClientErrors">
+          <Messages>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Status="Excluded" Created="2011-02-13 20:58:20Z">
+            <Issue>
+             <Item>'HttpStatusCodes.ClientErrors'</Item>
+            </Issue>
+            <Notes>
+             <User Name="Lasse V. Karlsen">
+              <Note Id="3" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#RequestUriTooLong">
+            <Messages>
+             <Message Id="long" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Status="Excluded" Created="2011-02-15 20:57:54Z">
+              <Issue Name="LanguageSpecificMember">
+               <Item>Long</Item>
+               <Item>'HttpStatusCodes.ClientErrors.RequestUriTooLong'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Lasse V. Karlsen">
+                <Note Id="4" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HttpStatusCodes+Informational">
+          <Messages>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Status="Excluded" Created="2011-02-12 19:31:16Z">
+            <Issue>
+             <Item>'HttpStatusCodes.Informational'</Item>
+            </Issue>
+            <Notes>
+             <User Name="Lasse V. Karlsen">
+              <Note Id="1" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="HttpStatusCodes+Redirection">
+          <Messages>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Status="Excluded" Created="2011-02-12 19:31:16Z">
+            <Issue>
+             <Item>'HttpStatusCodes.Redirection'</Item>
+            </Issue>
+            <Notes>
+             <User Name="Lasse V. Karlsen">
+              <Note Id="0" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="HttpStatusCodes+ServerErrors">
+          <Messages>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Status="Excluded" Created="2011-02-13 20:58:20Z">
+            <Issue>
+             <Item>'HttpStatusCodes.ServerErrors'</Item>
+            </Issue>
+            <Notes>
+             <User Name="Lasse V. Karlsen">
+              <Note Id="2" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="HttpStatusCodes+Successful">
+          <Messages>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Status="Excluded" Created="2011-02-12 19:31:16Z">
+            <Issue>
+             <Item>'HttpStatusCodes.Successful'</Item>
+            </Issue>
+            <Notes>
+             <User Name="Lasse V. Karlsen">
+              <Note Id="5" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/WebDAVSharp.Server/bin/Debug/WebDAVSharp.Server.dll">
+    <Modules>
+     <Module Name="webdavsharp.server.dll">
+      <Namespaces>
+       <Namespace Name="WebDAVSharp.Server.Adapters">
+        <Types>
+         <Type Name="HttpListenerResponseAdapter">
+          <Members>
+           <Member Name="#.ctor(System.Net.HttpListenerResponse)">
+            <Messages>
+             <Message Id="Response" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2011-02-13 20:58:20Z">
+              <Issue Name="MemberParameter">
+               <Item>'HttpListenerResponseAdapter.HttpListenerResponseAdapter(HttpListenerResponse)'</Item>
+               <Item>Response</Item>
+               <Item>'Response'</Item>
+               <Item>response</Item>
+              </Issue>
+              <Notes>
+               <User Name="Lasse V. Karlsen">
+                <Note Id="9" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="IHttpListener">
+          <Members>
+           <Member Name="#Stop()">
+            <Messages>
+             <Message Id="Stop" TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716" Status="Excluded" Created="2011-02-13 20:58:20Z">
+              <Issue Name="Member">
+               <Item>'IHttpListener.Stop()'</Item>
+               <Item>Stop</Item>
+              </Issue>
+              <Notes>
+               <User Name="Lasse V. Karlsen">
+                <Note Id="10" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="WebDAVSharp.Server.Stores">
+        <Types>
+         <Type Name="IWebDAVStoreCollection">
+          <Messages>
+           <Message TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711" Status="Excluded" Created="2011-02-13 20:58:20Z">
+            <Issue Name="TypeNoAlternate">
+             <Item>'IWebDAVStoreCollection'</Item>
+             <Item>Collection</Item>
+            </Issue>
+            <Notes>
+             <User Name="Lasse V. Karlsen">
+              <Note Id="6" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="WebDAVSharp.Server.Stores.DiskStore">
+        <Types>
+         <Type Name="WebDAVDiskStoreCollection">
+          <Messages>
+           <Message TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711" Status="Excluded" Created="2011-02-13 20:58:20Z">
+            <Issue Name="TypeNoAlternate">
+             <Item>'WebDAVDiskStoreCollection'</Item>
+             <Item>Collection</Item>
+            </Issue>
+            <Notes>
+             <User Name="Lasse V. Karlsen">
+              <Note Id="7" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="WebDAVSharp.Server.Stores.MemoryStore">
+        <Types>
+         <Type Name="WebDAVMemoryStoreCollection">
+          <Messages>
+           <Message TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711" Status="Excluded" Created="2011-02-13 20:58:20Z">
+            <Issue Name="TypeNoAlternate">
+             <Item>'WebDAVMemoryStoreCollection'</Item>
+             <Item>Collection</Item>
+            </Issue>
+            <Notes>
+             <User Name="Lasse V. Karlsen">
+              <Note Id="8" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="Lasse V. Karlsen">
+    <Note Id="0" Modified="2011-02-15 20:29:34Z">HttpStatusCodes.Redirection should be public.</Note>
+    <Note Id="1" Modified="2011-02-15 20:29:45Z">HttpStatusCodes.Informational should be public.</Note>
+    <Note Id="2" Modified="2011-02-15 20:30:05Z">HttpStatusCodes.ServerErrors should be public.</Note>
+    <Note Id="3" Modified="2011-02-15 20:30:16Z">HttpStatusCodes.ClientErrors should be public.</Note>
+    <Note Id="4" Modified="2011-02-15 20:58:14Z">This is the name from the HTTP status code standard.</Note>
+    <Note Id="5" Modified="2011-02-15 20:59:29Z">This should be public.</Note>
+    <Note Id="6" Modified="2011-02-15 20:59:46Z">The "collection" part here is a webdav document collection.</Note>
+    <Note Id="7" Modified="2011-02-15 20:59:48Z">The "collection" part here is a webdav document collection.</Note>
+    <Note Id="8" Modified="2011-02-15 20:59:51Z">The "collection" part here is a webdav document collection.</Note>
+    <Note Id="9" Modified="2011-02-15 21:00:07Z">Unable to fix this through dictionary, excluding it.</Note>
+    <Note Id="10" Modified="2011-02-15 21:00:57Z">This is the name of the method in the .NET runtime, and the offending class is an adapter for the .NET runtime class, excluding this.</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+    <Resolution Name="MemberParameter">In member {0}, correct the casing of '{1}' in parameter name {2} by changing it to '{3}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720">
+    <Resolution Name="LanguageSpecificMember">Consider replacing the language-specific data type identifier '{0}' in member name {1} with either a language-independent equivalent or a more generic term, such as 'value'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711">
+    <Resolution Name="TypeNoAlternate">Rename type name {0} so that it does not end in '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716">
+    <Resolution Name="Member">Rename virtual/interface member {0} so that it no longer conflicts with the reserved language keyword '{1}'. Using a reserved keyword as the name of a virtual/interface member makes it harder for consumers in other languages to override/implement the member.</Resolution>
+   </Rule>
+   <Rule TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034">
+    <Resolution Name="Default">Do not nest type {0}. Alternatively, change its accessibility so that it is not externally visible.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

@@ -1,0 +1,296 @@
+﻿<#@ output extension=".Designer.cs" #>
+<#@ assembly name="System.Core " #>
+<#@ import namespace="System.Linq" #>
+<#
+var codes = new Code[]
+{
+    /************** 1xx Informational **************/
+    new Code(100, "Continue", "Continue",
+        "The client SHOULD continue with its request.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.1.1"),
+    new Code(101, "SwitchingProtocols", "Switching Protocols",
+        "The server understands and is willing to comply with the client's request, via the Upgrade message header field, for a change in the application protocol being used on this connection.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.1.2"),
+    new Code(102, "Processing", "Processing",
+        "The 102 (Processing) status code is an interim response used to inform the client that the server has accepted the complete request, but has not yet completed it.",
+        "http://www.webdav.org/specs/rfc2518.html#STATUS_102"),
+
+    /************** 2xx Successful *****************/
+    new Code(200, "OK", "OK",
+        "The request has succeeded.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1"),
+    new Code(201, "Created", "Created",
+        "The request has been fulfilled and resulted in a new resource being created.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.2"),
+    new Code(202, "Accepted", "Accepted",
+        "The request has been accepted for processing, but the processing has not been completed.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3"),
+    new Code(203, "NonAuthoritativeInformation", "Non-Authoritative Information",
+        "The returned metainformation in the entity-header is not the definitive set as available from the origin server, but is gathered from a local or a third-party copy.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.4"),
+    new Code(204, "NoContent", "No Content",
+        "The server has fulfilled the request but does not need to return an entity-body, and might want to return updated metainformation.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.5"),
+    new Code(205, "ResetContent", "Reset Content",
+        "The server has fulfilled the request and the user agent SHOULD reset the document view which caused the request to be sent.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.6"),
+    new Code(206, "PartialContent", "Partial Content",
+        "The server has fulfilled the partial GET request for the resource.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.7"),
+    new Code(207, "MultiStatus", "Multi-Status",
+        "The 207 (Multi-Status) status code provides status for multiple independent operations.",
+        "http://www.webdav.org/specs/rfc2518.html#STATUS_207"),
+
+    /************** 3xx Redirection ****************/
+    new Code(300, "MultipleChoices", "Multiple Choices",
+        "The requested resource corresponds to any one of a set of representations.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.1"),
+    new Code(301, "MovedPermanently", "Moved Permanently",
+        "The requested resource has been assigned a new permanent URI and any future references to this resource SHOULD use one of the returned URIs.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.2"),
+    new Code(302, "Found", "Found",
+        "The requested resource resides temporarily under a different URI.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3"),
+    new Code(303, "SeeOther", "See Other",
+        "The response to the request can be found under a different URI and SHOULD be retrieved using a GET method on that resource.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4"),
+    new Code(304, "NotModified", "Not Modified",
+        "If the client has performed a conditional GET request and access is allowed, but the document has not been modified, the server SHOULD respond with this status code.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.5"),
+    new Code(305, "UseProxy", "Use Proxy",
+        "The requested resource MUST be accessed through the proxy given by the Location field.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.6"),
+    new Code(307, "TemporaryRedirect", "Temporary Redirect",
+        "The requested resource resides temporarily under a different URI.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.8"),
+
+    /************** 4xx Client Error ***************/
+    new Code(400, "BadRequest", "Bad Request",
+        "The request could not be understood by the server due to malformed syntax.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1"),
+    new Code(401, "Unauthorized", "Unauthorized",
+        "The request requires user authentication.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2"),
+    new Code(402, "PaymentRequired", "Bad PaymentRequired",
+        "This code is reserved for future use",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.3"),
+    new Code(403, "Forbidden", "Forbidden",
+        "The server understood the request, but is refusing to fulfill it.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4"),
+    new Code(404, "NotFound", "Not Found",
+        "The server has not found anything matching the Request-URI.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5"),
+    new Code(405, "MethodNotAllowed", "Method Not Allowed",
+        "The method specified in the Request-Line is not allowed for the resource identified by the Request-URI.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6"),
+    new Code(406, "NotAcceptable", "Not Acceptable",
+        "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7"),
+    new Code(407, "ProxyAuthenticationRequired", "Proxy Authentication Required",
+        "This code is similar to 401 (<see cref=\"Unauthorized\"/>), but indicates that the client must first authenticate itself with the proxy.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.8"),
+    new Code(408, "RequestTimeout", "Request Timeout",
+        "The client did not produce a request within the time that the server was prepared to wait.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.9"),
+    new Code(409, "Conflict", "Conflict",
+        "The request could not be completed due to a conflict with the current state of the resource.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.10"),
+    new Code(410, "Gone", "Gone",
+        "The requested resource is no longer available at the server and no forwarding address is known.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11"),
+    new Code(411, "LengthRequired", "Length Required",
+        "The server refuses to accept the request without a defined Content- Length.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.12"),
+    new Code(412, "PreconditionFailed", "Precondition Failed",
+        "The precondition given in one or more of the request-header fields evaluated to false when it was tested on the server.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.13"),
+    new Code(413, "RequestEntityTooLarge", "Request Entity Too Large",
+        "The server is refusing to process a request because the request entity is larger than the server is willing or able to process.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.14"),
+    new Code(414, "RequestUriTooLong", "Request-URI Too Long",
+        "The server is refusing to service the request because the Request-URI is longer than the server is willing to interpret.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.15"),
+    new Code(415, "UnsupportedMediaType", "Unsupported Media Type",
+        "The server is refusing to service the request because the entity of the request is in a format not supported by the requested resource for the requested method.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.16"),
+    new Code(416, "RequestedRangeNotSatisfiable", "Requested Range Not Satisfiable",
+        "A server SHOULD return a response with this status code if a request included a Range request-header field, and none of the range-specifier values in this field overlap the current extent of the selected resource, and the request did not include an If-Range request-header field.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.17"),
+    new Code(417, "ExpectationFailed", "Expectation Failed",
+        "The expectation given in an Expect request-header field could not be met by this server, or, if the server is a proxy, the server has unambiguous evidence that the request could not be met by the next-hop server.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.18"),
+    new Code(422, "UnprocessableEntity", "Unprocessable Entity",
+        "The 422 (<see cref=\"UnprocessableEntity\"/>) status code means the server understands the content type of the request entity (hence a 415 (<see cref=\"UnsupportedMediaType\"/>) status code is inappropriate), and the syntax of the request entity is correct (thus a 400 (<see cref=\"BadRequest\"/>) status code is inappropriate) but was unable to process the contained instructions.",
+        "http://www.webdav.org/specs/rfc2518.html#STATUS_422"),
+    new Code(423, "Locked", "Locked",
+        "The 423 (<see cref=\"Locked\"/>) status code means the source or destination resource of a method is locked.",
+        "http://www.webdav.org/specs/rfc2518.html#STATUS_423"),
+    new Code(424, "FailedDependency", "Failed Dependency",
+        "The 424 (<see cref=\"FailedDependency\"/>) status code means that the method could not be performed on the resource because the requested action depended on another action and that action failed.",
+        "http://www.webdav.org/specs/rfc2518.html#STATUS_424"),
+
+    /************** 5xx Server Error ***************/
+    new Code(500, "InternalServerError", "Internal Server Error",
+        "The server encountered an unexpected condition which prevented it from fulfilling the request.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1"),
+    new Code(501, "NotImplemented", "Not Implemented",
+        "The server does not support the functionality required to fulfill the request.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.2"),
+    new Code(502, "BadGateway", "Bad Gateway",
+        "The server, while acting as a gateway or proxy, received an invalid response from the upstream server it accessed in attempting to fulfill the request.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.3"),
+    new Code(503, "ServiceUnavailable", "Service Unavailable",
+        "The server is currently unable to handle the request due to a temporary overloading or maintenance of the server.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4"),
+    new Code(504, "GatewayTimeout", "Gateway Timeout",
+        "The server, while acting as a gateway or proxy, did not receive a timely response from the upstream server specified by the URI (e.g. HTTP, FTP, LDAP) or some other auxiliary server (e.g. DNS) it needed to access in attempting to complete the request.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.5"),
+    new Code(505, "HttpVersionNotSupported", "HTTP Version Not Supported",
+        "The server does not support, or refuses to support, the HTTP protocol version that was used in the request message.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.6"),
+    new Code(507, "InsufficientStorage", "Insufficient Storage",
+        "The 507 (<see cref=\"InsufficientStorage\"/>) status code means the method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request.",
+        "http://www.webdav.org/specs/rfc2518.html#STATUS_507"),
+};
+var sections = new Section[]
+{
+    new Section("Informational", 100, 199,
+        "Informational 1xx: This class of status code indicates a provisional response, consisting only of the Status-Line and optional headers, and is terminated by an empty line.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.1"),
+    new Section("Successful", 200, 299,
+        "Successful 2xx: This class of status code indicates that the client's request was successfully received, understood, and accepted.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2"),
+    new Section("Redirection", 300, 399,
+        "Redirection 3xx: This class of status code indicates that further action needs to be taken by the user agent in order to fulfill the request.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3"),
+    new Section("ClientErrors", 400, 499,
+        "The 4xx class of status code is intended for cases in which the client seems to have erred.",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4"),
+    new Section("ServerErrors", 500, 599,
+        "Response status codes beginning with the digit \"5\" indicate cases in which the server is aware that it has erred or is incapable of performing the request",
+        "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5"),
+};
+#>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace WebDAVSharp
+{
+    /// <summary>
+    /// Constants for HTTP status codes.
+    /// </summary>
+    public static partial class HttpStatusCodes
+    {
+        private static readonly Dictionary<int, StatusCode> _StatusCodes = new Dictionary<int, StatusCode>
+        {
+<#
+    var firstSection = true;
+    foreach (var section in sections.OrderBy(s => s.LowerId))
+    {
+        if (!firstSection)
+        {
+#>
+
+<#
+        }
+#>
+            // <#= section.Description #>
+<#
+        foreach (var code in codes.Where(c => c.Id >= section.LowerId && c.Id <= section.UpperId).OrderBy(c => c.Id))
+        {
+#>
+            { <#= code.Id #>, new StatusCode(<#= code.Id #>, "<#= code.Name #>") },
+<#
+        }
+        firstSection = false;
+    }
+#>
+        };
+<#
+var orderedSections =
+    from section in sections
+    orderby section.LowerId
+    select section;
+foreach (var section in orderedSections)
+{
+    var sectionCodes =
+        from code in codes
+        where code.Id >= section.LowerId && code.Id <= section.UpperId
+        orderby code.Id
+        select code;
+#>
+
+        /// <summary>
+        /// <#= section.Description #>
+        /// </summary>
+        /// <remarks>
+        /// For more information, see <see href="<#= section.Url #>"/>.
+        /// </remarks>
+        public static class <#= section.IdentifierName #>
+        {
+<#
+    var firstCode = true;
+    foreach (var code in sectionCodes)
+    {
+        if (!firstCode)
+        {
+#>
+
+<#
+        }
+#>
+            /// <summary>
+            /// #<#= code.Id #>: <#= code.Description #>
+            /// </summary>
+            /// <remarks>
+            /// For more information, see <see href="<#= code.Url #>"/>.
+            /// </remarks>
+            public const int <#= code.IdentifierName #> = <#= code.Id #>;
+<#
+        firstCode = false;
+    }
+#>
+        }
+<#
+}
+#>
+    }
+}
+<#+
+class Code
+{
+    public Code(int id, string identifierName, string name, string description, string url)
+    {
+        Id = id;
+        IdentifierName = identifierName;
+        Name = name;
+        Description = description;
+        Url = url;
+    }
+
+    public int Id { get; private set; }
+    public string IdentifierName { get; private set; }
+    public string Name { get; private set; }
+    public string Description { get; private set; }
+    public string Url { get; private set; }
+}
+
+class Section
+{
+    public Section(string identifierName, int lowerId, int upperId, string description, string url)
+    {
+        IdentifierName = identifierName;
+        LowerId = lowerId;
+        UpperId = upperId;
+        Description = description;
+        Url = url;
+    }
+
+    public string IdentifierName { get; private set; }
+    public string Description { get; private set; }
+    public int LowerId { get; private set; }
+    public int UpperId { get; private set; }
+    public string Url { get; private set; }
+}
+#>

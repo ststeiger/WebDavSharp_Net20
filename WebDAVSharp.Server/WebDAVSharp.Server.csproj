@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BE8A04DD-C704-40B2-8AD2-3655B429FAE1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebDAVSharp.Server</RootNamespace>
+    <AssemblyName>WebDAVSharp.Server</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Debug\WebDAVSharp.Server.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Release\WebDAVSharp.Server.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseBinaries|AnyCPU'">
+    <OutputPath>bin\ReleaseBinaries\</OutputPath>
+    <DefineConstants>TRACE;USE_RELEASE_KEY</DefineConstants>
+    <DocumentationFile>bin\Release\WebDAVSharp.Server.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\Lasse V. Karlsen.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adapters\HttpListenerContextAdapter.cs" />
+    <Compile Include="Adapters\HttpListenerRequestAdapter.cs" />
+    <Compile Include="Adapters\HttpListenerResponseAdapter.cs" />
+    <Compile Include="Adapters\IAdapter.cs" />
+    <Compile Include="Adapters\IHttpListenerContext.cs" />
+    <Compile Include="Adapters\IHttpListenerRequest.cs" />
+    <Compile Include="Adapters\IHttpListenerResponse.cs" />
+    <Compile Include="Exceptions\HttpConflictException.cs" />
+    <Compile Include="Exceptions\HttpException.cs" />
+    <Compile Include="Exceptions\HttpInternalServerException.cs" />
+    <Compile Include="Exceptions\HttpMethodNotAllowedException.cs" />
+    <Compile Include="Exceptions\HttpNotFoundException.cs" />
+    <Compile Include="Exceptions\HttpNotImplementedException.cs" />
+    <Compile Include="MethodHandlers\WebDAVCopyMethodHandler.cs" />
+    <Compile Include="MethodHandlers\WebDAVDeleteMethodHandler.cs" />
+    <Compile Include="MethodHandlers\WebDAVMkColMethodHandler.cs" />
+    <Compile Include="MethodHandlers\WebDAVMoveHttpHandler.cs" />
+    <Compile Include="MethodHandlers\WebDAVOptionsMethodHandler.cs" />
+    <Compile Include="MethodHandlers\WebDAVPutMethodHandler.cs" />
+    <Compile Include="Stores\BaseClasses\WebDAVStoreBase.cs" />
+    <Compile Include="Stores\BaseClasses\WebDAVStoreItemBase.cs" />
+    <Compile Include="Stores\DiskStore\WebDAVDiskStore.cs" />
+    <Compile Include="Stores\DiskStore\WebDAVDiskStoreCollection.cs" />
+    <Compile Include="Stores\DiskStore\WebDAVDiskStoreDocument.cs" />
+    <Compile Include="Stores\DiskStore\WebDAVDiskStoreItem.cs" />
+    <Compile Include="Stores\IWebDAVStore.cs" />
+    <Compile Include="Adapters\IHttpListener.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MethodHandlers\IWebDAVMethodHandler.cs" />
+    <Compile Include="MethodHandlers\WebDAVGetMethodHandler.cs" />
+    <Compile Include="Stores\IWebDAVStoreCollection.cs" />
+    <Compile Include="Stores\IWebDAVStoreDocument.cs" />
+    <Compile Include="Stores\IWebDAVStoreItem.cs" />
+    <Compile Include="Stores\MemoryStore\MemoryStreamEx.cs" />
+    <Compile Include="Stores\MemoryStore\WebDAVMemoryStore.cs" />
+    <Compile Include="Stores\MemoryStore\WebDAVMemoryStoreCollection.cs" />
+    <Compile Include="Stores\MemoryStore\WebDAVMemoryStoreDocument.cs" />
+    <Compile Include="Stores\MemoryStore\WebDAVMemoryStoreItem.cs" />
+    <Compile Include="WebDAVExtensions.cs" />
+    <Compile Include="WebDAVServer.cs" />
+    <Compile Include="Adapters\HttpListenerAdapter.cs" />
+    <Compile Include="MethodHandlers\WebDAVMethodHandlers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Lasse V. Karlsen.snk">
+      <Link>Lasse V. Karlsen.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebDAVSharp.Core\WebDAVSharp.Core.csproj">
+      <Project>{17596634-f185-4a68-adb3-34367b93241a}</Project>
+      <Name>WebDAVSharp.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
